@@ -1,0 +1,82 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    margin-top: 60px; 
+}
+
+ul {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    align-content: flex-start;
+}
+
+.logo {
+    color: red;
+    font-weight:bolder;
+}
+
+nav {
+    background-color: rgb(8, 8, 115);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1;
+    height: 60px;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    margin-right: 15px;
+    font-size: large;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.background {
+    position: relative;
+    flex: 1; 
+}
+
+.car {
+    position: absolute;
+    padding-left: 250px;
+    padding-top: 100px;
+}
+
+
+.background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+
+#winOrLose {
+    font-size: 30px;
+    color: yellow;
+    position: fixed;
+    right: 30%;
+}
+
+.bananorama {
+    height: 50px;
+    width: auto;
+}
+
+
+#tingDiv, #kulDiv {
+    color: white;
+}
