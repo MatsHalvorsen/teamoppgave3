@@ -80,3 +80,19 @@ main {
 #tingDiv, #kulDiv {
     color: white;
 }
+
+
+
+
+  .container {
+        display: flex;
+        justify-content: flex end;
+        border: solid black;
+        height: 500px;
+        width: 500px;
+        position: absolute;
+        margin-left: 1000px;
+        margin-top: 200px;
+        background-color: ghostwhite;
+   }
+   
