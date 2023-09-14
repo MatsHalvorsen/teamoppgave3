@@ -1,9 +1,8 @@
+///// "Nå er jeg litt kjapp her! Det skjer jo stadig vekk!" -Terje /////
+
 // Model
 let kulometer = 1;
-let hils = {
-        hilsen1: "noe her",
 
-    }
     let banan = 3
     let kaffe = 2
     let sjokkis = 1
@@ -11,13 +10,15 @@ let hils = {
 const ting = [
     banan, kaffe, sjokkis, 
 ]
-let answer = 2;
+//let answer = 4;
+const carImage = "car.png";
 
 let isMusicPlaying = false;
 
 let questionTime = 5;
 
 let questions = ["hva er 2+2", "hva er 4+4", "hva er 5+5"];
+let questionAnswers = ["4", "8", "10"];
 let questionIndex = 0;
 
 // View
@@ -27,7 +28,8 @@ function updateView() {
     document.getElementById('app').innerHTML = /*HTML*/ `
     <nav>
         <ul>
-            <li><a class="logo">Mojaffa Yaris</a></li>
+            <li><img id="pika" src="pikaGunnar.png"></li>
+            <li><a class="logo">Mojaffas Yaris</a></li>
             <li><a href="#">Kul-O-meter:</a></li>
             <div id="winOrLose"></div>
             <div id="kulDiv"></div>
@@ -37,21 +39,23 @@ function updateView() {
             </audio>
             <button id="toggleButton" onclick="playMusic()">Play</button>
             </ul>
-            <input type="number" placeholder="insert answer here" > ${questions[questionIndex]}
-            <div id="questionDiv"></div>
-            <div id="answerDiv"><div>
-            <button onclick="firstAnswer()">Enter</button>
     </nav>
 
     <main>
          <div class="background"><img src="bilvei.png" alt="car road"></div>
-        <img class="car" src="car2.png" alt="car">
-
-        <div class="container"></div>
+         <div id="carImg"><img class="car" src="car.png" alt="car"></div>
+         
+        <div class="container">
+        <input type="number" placeholder="insert answer here" > ${questions[questionIndex]}
+        <button onclick="checkAnswer()">Enter</button>
+        <div id="questionDiv"></div>
+            <div id="answerDiv"><div>
+        </div>
+        
     </main>
    
     `;
-//    document.querySelector('#kulDiv').innerHTML = kulometer
+    document.querySelector('#kulDiv').innerHTML = kulometer;
 }
 
 // Controller
@@ -70,59 +74,27 @@ function playMusic() {
     }
 };
 
-//const timeInterval = setInterval(questionTime, 5000); 
-
-
     //spill objektivet
-function firstAnswer(){
-    if (answer == 4){
+function checkAnswer(){
+    const answer = document.querySelector('input').value;
+    if (answer == questionAnswers[questionIndex]){
        kulometer++;
        document.querySelector('#kulDiv').innerHTML = kulometer;
        updateKulometer();
+       questionIndex++;
+       if (questionIndex < questions.length) {
+       updateView();
+       }
        return document.querySelector('#answerDiv').innerHTML = "riktig svar!";
     }  else{ 
         kulometer --;
         document.querySelector('#kulDiv').innerHTML = kulometer;
         updateKulometer();
-       return document.querySelector('#answerDiv').innerHTML = "feil svar!";
+       return document.querySelector('#answerDiv').innerHTML = "Du er ikke noe Reodor Felgen i ihvertfall!";
     }
     } 
-function secondAnswer(){
-        if (answer == 2){
-           kulometer+=2;
-           document.querySelector('#kulDiv').innerHTML = kulometer;
-           updateKulometer();
-           return document.querySelector('#answerDiv').innerHTML = "riktig svar!";
-        }  else{ 
-            kulometer -=2;
-            document.querySelector('#kulDiv').innerHTML = kulometer;
-            updateKulometer();
-           return document.querySelector('#answerDiv').innerHTML = "feil svar!";
-        }
-        } 
-        
-       
-  function answerCheck(noeAnnet){
-       answer = noeAnnet
-         }
 
-    // tjene og miste kulometer
- function bananaPower(){
-    kulometer += 3
-    updateView();
-   }
-   
-    updateView();
-   function coffeePower(){
-   updateView();    
-   kulometer += 2
-   }
-   
-   function chocolatePower(){
-   kulometer ++;
-   updateView();    
-   }
-
+    
 // failure state og win condition
 function updateKulometer(){
   const winLose = document.querySelector('#winOrLose');  
@@ -130,10 +102,11 @@ function updateKulometer(){
   winLose.innerHTML = 'Du suger as...';
    console.log('You suck!')
     } 
-    if (kulometer > 9){
+    if (kulometer == 2){
     console.log('you win')
     document.querySelector("#winOrLose").innerHTML = 'Du er den Ultimate Råtass!';
+    document.querySelector("#carImg").innerHTML = '<img class="car" src="car2.png" alt="car">';
     }
+       
+}
 
-
-console.log(kulometer);}

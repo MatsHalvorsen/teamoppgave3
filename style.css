@@ -28,7 +28,7 @@ nav {
     width: 100%;
     top: 0;
     z-index: 1;
-    height: 60px;
+    height: 100px;
 }
 
 a {
@@ -49,12 +49,11 @@ main {
     flex: 1; 
 }
 
-.car {
+#carImg {
     position: absolute;
     padding-left: 250px;
-    padding-top: 100px;
+    padding-top: 100px; 
 }
-
 
 .background img {
     width: 100%;
@@ -81,18 +80,24 @@ main {
     color: white;
 }
 
-
-
-
   .container {
-        display: flex;
-        justify-content: flex end;
         border: solid black;
-        height: 500px;
-        width: 500px;
+        height: 400px;
+        width: 400px;
         position: absolute;
         margin-left: 1000px;
         margin-top: 200px;
         background-color: ghostwhite;
    }
-   
+
+   #pika {
+    margin: 0;
+    height: 100px;
+    width: auto;
+    top: 0;
+   }
+
+   button{
+   height: 24px; 
+   width: 40px;
+   }
