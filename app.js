@@ -102,7 +102,7 @@ function updateKulometer(){
   winLose.innerHTML = 'Du suger as...';
    console.log('You suck!')
     } 
-    if (kulometer == 2){
+    if (kulometer >= 2){
     console.log('you win')
     document.querySelector("#winOrLose").innerHTML = 'Du er den Ultimate Råtass!';
     document.querySelector("#carImg").innerHTML = '<img class="car" src="car2.png" alt="car">';
